@@ -1,0 +1,13 @@
+#!/bin/sh
+# Start Pi with the personal harness's own agent dir. Never uses ~/.pi/agent. # al-dir-check
+# Optional. The launcher always sets the agent dir. PI_PERSONAL_AGENT_DIR is the only override.
+PI_CODING_AGENT_DIR="${PI_PERSONAL_AGENT_DIR:-$HOME/.pi/agent-personal}" # default-fallback
+PI_PERSONAL_HOME="${PI_PERSONAL_HOME:-$HOME/.config/pi-harness-personal}" # default-fallback
+al_dir="$HOME/.pi/agent" # al-dir-check
+if [ "$PI_CODING_AGENT_DIR" = "$al_dir" ]; then
+  echo "Refusing to use $al_dir. Start with pi-personal." >&2 # al-dir-check
+  exit 1
+fi
+export PI_CODING_AGENT_DIR PI_PERSONAL_HOME
+mkdir -p "$PI_CODING_AGENT_DIR"
+exec pi "$@"
