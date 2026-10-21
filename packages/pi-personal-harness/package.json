@@ -1,0 +1,15 @@
+{
+  "name": "pi-personal-harness",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal harness extensions. Pi loads these from the personal-vN tag in ~/.pi/agent-personal.",
+  "keywords": ["pi-package"],
+  "pi": {
+    "extensions": [
+      "./extensions/session.ts",
+      "./extensions/vault.ts",
+      "./extensions/loop.ts"
+    ]
+  }
+}

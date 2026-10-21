@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+.pi/sessions/
+.pi/mcp-oauth/
+.pi/mcp-traces/
+.pi/npm/
+.pi/git/
